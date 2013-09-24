@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">Canvas for Pebble: Power Source Plugin</string>
+    <string name="plugin_name">Power Source</string>
+
+    <string-array name="format_mask_descs">
+        <item>Time</item>
+        <item>State</item>
+    </string-array>
+
+</resources>
