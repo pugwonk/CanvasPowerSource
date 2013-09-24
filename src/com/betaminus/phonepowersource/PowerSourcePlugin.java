@@ -26,21 +26,19 @@ import android.util.Log;
 import com.pennas.pebblecanvas.plugin.PebbleCanvasPlugin;
 
 public class PowerSourcePlugin extends PebbleCanvasPlugin {
-	public static final String LOG_TAG = "CANV_STOCK_TICK";
+	public static final String LOG_TAG = "CANV_PLUGGEDIN";
 	
 	public static final int MY_UNIQUE_ID = 2;
 	
 	private static final String[] MASKS = { "%T", "%P" };
-	private static final int MASK_TICKER = 0;
-	private static final int MASK_PRICE = 1;
+	private static final int MASK_TIME = 0;
+	private static final int MASK_POWERSTATE = 1;
 	
 	private static class PowerStateChanged {
 		Date time;
 		String state;
 	}
 	private static PowerStateChanged current_state = new PowerStateChanged();
-
-
 	
 	// send plugin metadata to Canvas when requested
 	@Override
@@ -73,9 +71,9 @@ public class PowerSourcePlugin extends PebbleCanvasPlugin {
 		Log.i(LOG_TAG, "get_format_mask_value def_id = " + def_id + " format_mask = '" + format_mask + "'");
 		if (def_id == MY_UNIQUE_ID) {
 			// which field to return current value for?
-			if (format_mask.equals(MASKS[MASK_TICKER])) {
+			if (format_mask.equals(MASKS[MASK_TIME])) {
 				return new SimpleDateFormat("H:mm:ss").format(Calendar.getInstance().getTime());
-			} else if (format_mask.equals(MASKS[MASK_PRICE])) {
+			} else if (format_mask.equals(MASKS[MASK_POWERSTATE])) {
 				return current_state.state;
 			}
 		}
