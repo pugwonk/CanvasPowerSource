@@ -28,7 +28,7 @@ import com.pennas.pebblecanvas.plugin.PebbleCanvasPlugin;
 public class PowerSourcePlugin extends PebbleCanvasPlugin {
 	public static final String LOG_TAG = "CANV_PLUGGEDIN";
 	
-	public static final int MY_UNIQUE_ID = 2;
+	public static final int PLUGGEDIN_ID = 1; // Needs to be unique only within this plugin package
 	
 	private static final String[] MASKS = { "%T", "%P" };
 	private static final int MASK_TIME = 0;
@@ -50,7 +50,7 @@ public class PowerSourcePlugin extends PebbleCanvasPlugin {
 		
 		// now playing (text)
 		TextPluginDefinition tplug = new TextPluginDefinition();
-		tplug.id = MY_UNIQUE_ID;
+		tplug.id = PLUGGEDIN_ID;
 		tplug.name = context.getString(R.string.plugin_name);
 		tplug.format_mask_descriptions = new ArrayList<String>(Arrays.asList(context.getResources().getStringArray(R.array.format_mask_descs)));
 		// populate example content for each field (optional) to be display in the format mask editor
@@ -69,7 +69,7 @@ public class PowerSourcePlugin extends PebbleCanvasPlugin {
 	@Override
 	protected String get_format_mask_value(int def_id, String format_mask, Context context, String param) {
 		Log.i(LOG_TAG, "get_format_mask_value def_id = " + def_id + " format_mask = '" + format_mask + "'");
-		if (def_id == MY_UNIQUE_ID) {
+		if (def_id == PLUGGEDIN_ID) {
 			// which field to return current value for?
 			if (format_mask.equals(MASKS[MASK_TIME])) {
 				return new SimpleDateFormat("H:mm:ss").format(Calendar.getInstance().getTime());
@@ -99,7 +99,7 @@ public class PowerSourcePlugin extends PebbleCanvasPlugin {
         	current_state.state = "On battery";
         }
         
-		notify_canvas_updates_available(MY_UNIQUE_ID, context);
+		notify_canvas_updates_available(PLUGGEDIN_ID, context);
 	}
 
 }
