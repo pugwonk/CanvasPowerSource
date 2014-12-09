@@ -1,4 +1,4 @@
-package com.betaminus.phonepowersource;
+package com.betaminus.phonepower;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

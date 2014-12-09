@@ -1,4 +1,4 @@
-package com.betaminus.phonepowersource;
+package com.betaminus.phonepower;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,6 +23,7 @@ import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import com.betaminus.phonepower.R;
 import com.pennas.pebblecanvas.plugin.PebbleCanvasPlugin;
 
 public class PowerSourcePlugin extends PebbleCanvasPlugin {
